@@ -1,8 +1,8 @@
-FROM ubuntu:latest
-MAINTAINER John Fink <john.fink@gmail.com>
+FROM ubuntu:precise
+MAINTAINER Christian Simon <simon@swine.de>
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client mysql-server apache2 libapache2-mod-php5 pwgen python-setuptools vim-tiny php5-mysql
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client apache2 libapache2-mod-php5 python-setuptools nano mc vim-tiny php5-mysql php5-memcached php5-geoip php5-gd php5-ldap php5-imap php5-pgsql php5-mcrypt
 RUN easy_install supervisor
 ADD ./start.sh /start.sh
 ADD ./foreground.sh /etc/apache2/foreground.sh
